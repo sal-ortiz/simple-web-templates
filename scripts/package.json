@@ -1,0 +1,13 @@
+{
+  "directories": {
+    "lib": "../lib",
+    "test": "../test",
+    "example": "../examples"
+  },
+  "scripts": {
+    "minify": "mkdir -p -v ../dist; minify $( readlink -f ../lib/* ) > $( readlink -f ../dist/web_templates.min.js )"
+  },
+  "dependencies": {
+    "minify": "^5.1.0"
+  }
+}
