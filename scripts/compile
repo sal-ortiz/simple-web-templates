@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+
+ROOT_PATH=$( printf "$( readlink --verbose --canonicalize .. )" )
+DIST_PATH=$ROOT_PATH/dist
+LIB_PATH=$ROOT_PATH/lib
+SCRIPTS_PATH=$ROOT_PATH/scripts
+
+MODULES_BIN_PATH=$SCRIPTS_PATH/node_modules/.bin
+
+mkdir --parents --verbose $DIST_PATH
+
+MAIN_LIB=$LIB_PATH/web_template.js
+HELPER_LIB=$LIB_PATH/web_template_helpers.js
+
+COMPILED="$( cat $MAIN_LIB $HELPER_LIB )" > $DIST_PATH/web_template.js
+echo "$COMPILED" > $DIST_PATH/web_template.js
+
+
+MINIFIED=$( $MODULES_BIN_PATH/minify $DIST_PATH/web_template.js )
+echo "$MINIFIED" > $DIST_PATH/web_template.min.js

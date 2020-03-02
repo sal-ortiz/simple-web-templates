@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+
+ROOT_PATH=$( printf "$( readlink --verbose --canonicalize .. )" )
+DIST_PATH=$ROOT_PATH/dist
+LIB_PATH=$ROOT_PATH/lib
+
+rm --verbose --recursive --force $DIST_PATH
