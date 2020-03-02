@@ -1,0 +1,82 @@
+<html>
+
+
+ <head>
+
+    <script src='lib/web_template_helpers.js'></script>
+    <script src='lib/web_template.js'></script>
+
+    <script>
+
+      document.addEventListener("DOMContentLoaded", (evt) => {
+        let data = {
+          '.crap .shittily': {
+            innerHTML: 'shittty shit shit!',
+          },
+          //'.crap .crappity': [
+          //  { innerHTML: 'crappy crap crapp!!',   },
+          //  { innerHTML: 'poopity poop poopp!!',  },
+          //  //{ innerHTML: 'assity ass asss!!',     },
+          //],
+          '.crap p': {
+            innerHTML: 'shittts',
+          },
+          'p': {
+            innerHTML: 'assity',
+          },
+          '.caca p': {
+            innerHTML: 'crappity',
+          },
+          '#pewp p': {
+            innerHTML: 'shitilly',
+          },
+
+        };
+
+        let contentEl = document.getElementById('content');
+        let baseTempl = new WebTemplate();
+        baseTempl.load('templates/template.html.template')
+          .then(baseTempl.render.bind(baseTempl, contentEl, data))
+
+        baseTempl.load('templates/template.html.template')
+          .then(baseTempl.render.bind(baseTempl, contentEl, data))
+
+
+        let shitEls = contentEl.getElementsByClassName('crap');
+        let shitTempl = new WebTemplate();
+        shitTempl.load('templates/shit.html.template')
+          .then(shitTempl.render.bind(shitTempl, shitEls, data));
+
+
+        let crappityEls = contentEl.getElementsByClassName('crappity');
+        let crappityTempl = new WebTemplate();
+        crappityTempl.load('templates/crappity.html.template')
+          .then(crappityTempl.render.bind(crappityTempl, crappityEls, data));
+
+      });
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <div id='content'>
+
+      <p>all of this content will disappear!</p>
+
+      <div class='caca'>
+        <p>all of this content will disappear!</p>
+      </div>
+
+
+    </div>
+
+
+
+  </body>
+
+
+
+
+</html>
