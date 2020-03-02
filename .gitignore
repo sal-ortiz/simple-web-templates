@@ -1,0 +1,8 @@
+# nodejs artifacts
+node_modules
+
+# vim artifacts
+*.sw*
+
+# build artifacts
+dist
